@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/RiskAlert.Api/RiskAlert.Api.csproj" />
+    <Project Path="src/RiskAlert.Core/RiskAlert.Core.csproj" />
+    <Project Path="src/RiskAlert.Infrastructure/RiskAlert.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RiskAlert.Tests/RiskAlert.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/RiskAlert.EventSimulator/RiskAlert.EventSimulator.csproj" />
+  </Folder>
+</Solution>
