@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Risk alert monitor</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@8.0.7/dist/browser/signalr.min.js"></script>
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Home"><span class="brand-icon">◈</span><span>RISK / SIGNAL</span></a>
+    <div id="connection" role="status"><i></i><span></span></div>
+    <label><span data-i18n="language">Language</span><select id="locale"><option value="en">English</option><option value="zh-TW">繁體中文</option><option value="ko">한국어</option></select></label>
+  </header>
+  <main>
+    <section class="heading"><div><p class="eyebrow">OPERATIONS OVERVIEW</p><h1 data-i18n="title">Risk alert monitor</h1><p data-i18n="subtitle">Live payment signals · Human decisions</p></div><a class="docs" href="/scalar">API ↗</a></section>
+    <div class="workspace">
+      <aside class="summary"><h2 data-i18n="stats">Last 24 hours</h2><div id="stats"></div><div id="breakdowns"></div></aside>
+      <section class="feed">
+        <div class="toolbar">
+          <label><span data-i18n="currency">Currency</span><select id="currency"><option value="" data-i18n="all">All</option><option>KRW</option><option>USD</option><option>USDT</option></select></label>
+          <label><span data-i18n="severity">Severity</span><select id="severity"><option value="" data-i18n="all">All</option><option value="Low" data-i18n="Low">Low</option><option value="Medium" data-i18n="Medium">Medium</option><option value="High" data-i18n="High">High</option><option value="Critical" data-i18n="Critical">Critical</option></select></label>
+          <label><span>From (UTC)</span><input id="from" type="datetime-local" step="1"></label>
+          <label><span>To (UTC)</span><input id="to" type="datetime-local" step="1"></label>
+        </div>
+        <div class="feed-heading"><h2 data-i18n="alerts">Alerts</h2><span id="count"></span></div>
+        <div id="alerts" aria-live="polite"></div>
+        <button id="more" class="secondary" data-i18n="loadMore" hidden>Load more</button>
+      </section>
+    </div>
+  </main>
+  <div id="overlay" hidden></div>
+  <aside id="detail" class="detail" aria-label="Alert details" hidden>
+    <button id="close" class="close" data-i18n="close">Close</button><div id="detail-content"></div>
+  </aside>
+  <div id="toasts" aria-live="polite"></div>
+</body>
+</html>
