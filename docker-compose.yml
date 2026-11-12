@@ -1,0 +1,33 @@
+services:
+  api:
+    build:
+      context: .
+      target: final
+    ports:
+      - "5107:5107"
+    environment:
+      Security__IngestApiKey: ${Security__IngestApiKey:-dev-ingest-key}
+      Notifications__Telegram__BotToken: ${Notifications__Telegram__BotToken:-}
+      Notifications__Telegram__ChatId: ${Notifications__Telegram__ChatId:-}
+      Notifications__Telegram__Locale: ${Notifications__Telegram__Locale:-en}
+      Notifications__DisplayTimeZone: ${Notifications__DisplayTimeZone:-Asia/Taipei}
+      Dashboard__PublicUrl: ${Dashboard__PublicUrl:-http://localhost:5107}
+    volumes:
+      - risk-data:/app/appdata
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/127.0.0.1/5107'"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+  simulator:
+    profiles: ["simulator"]
+    build:
+      context: .
+      target: simulator
+    depends_on:
+      api:
+        condition: service_healthy
+    command: ["--api", "http://api:5107", "--key", "${Security__IngestApiKey:-dev-ingest-key}", "--scenario", "all", "--duration", "60", "--rate", "5", "--seed", "42"]
+volumes:
+  risk-data:

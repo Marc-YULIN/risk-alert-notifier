@@ -1,0 +1,17 @@
+name: build-and-test
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - run: dotnet restore RiskAlert.slnx
+      - run: dotnet build RiskAlert.slnx --no-restore -c Release
+      - run: dotnet test RiskAlert.slnx --no-build --no-restore -c Release
