@@ -2,6 +2,8 @@
 
 # 交易風險告警服務
 
+[![CI](https://github.com/Marc-YULIN/risk-alert-notifier/actions/workflows/ci.yml/badge.svg)](https://github.com/Marc-YULIN/risk-alert-notifier/actions/workflows/ci.yml) ![.NET 10](https://img.shields.io/badge/.NET-10-512BD4) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
 可設定交易風險規則、即時查看告警，並依幣別管理 Telegram 通知。
 
 ## 背景

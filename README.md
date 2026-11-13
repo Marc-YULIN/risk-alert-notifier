@@ -2,6 +2,8 @@ English | [繁體中文](README.zh-TW.md)
 
 # Risk Alert Notifier
 
+[![CI](https://github.com/Marc-YULIN/risk-alert-notifier/actions/workflows/ci.yml/badge.svg)](https://github.com/Marc-YULIN/risk-alert-notifier/actions/workflows/ci.yml) ![.NET 10](https://img.shields.io/badge/.NET-10-512BD4) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
 A configurable transaction risk monitor with a live dashboard and currency-aware Telegram delivery.
 
 ## Background
