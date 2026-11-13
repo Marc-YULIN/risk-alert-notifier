@@ -11,7 +11,8 @@ async function api(url, options) {
   if (!response.ok) { let detail; try { detail = await response.json(); } catch { detail = {}; } throw new Error(detail.title || `${t('error')} (${response.status})`); }
   return response.status === 204 ? null : response.json();
 }
-function toast(text, danger = false) { const e = node('div', text, danger ? 'toast danger' : 'toast'); $('toasts').append(e); setTimeout(() => e.remove(), 5000); }
+const maxToasts = 3; // bursts of alerts should not bury the dashboard
+function toast(text, danger = false) { const box = $('toasts'), e = node('div', text, danger ? 'toast danger' : 'toast'); box.append(e); while (box.children.length > maxToasts) box.firstElementChild.remove(); setTimeout(() => e.remove(), 5000); }
 function connectionStatus(connected) { $('connection').classList.toggle('live', connected); $('connection').querySelector('span').textContent = t(connected ? 'connected' : 'disconnected'); }
 async function localeChanged() {
   state.locale = $('locale').value; localStorage.setItem('locale', state.locale);
