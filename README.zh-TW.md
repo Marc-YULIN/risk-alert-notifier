@@ -19,6 +19,16 @@
 - 各幣別通知開關、最低嚴重度、Telegram MarkdownV2 及自動乾跑模式。
 - 可重現的模擬流量、隔離的 SQLite 測試，以及外部通知的 HTTP 替身。
 
+## 畫面截圖
+
+<img src="docs/images/dashboard.png" alt="透過 SignalR 即時接收告警的看板">
+
+*透過 SignalR 即時接收告警的看板*
+
+<img src="docs/images/alert-detail.png" alt="告警詳情：證據時間窗與來源事件">
+
+*告警詳情：證據時間窗與來源事件*
+
 ## 架構
 
 ```mermaid

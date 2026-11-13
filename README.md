@@ -19,6 +19,16 @@ Distilled from patterns I built and operated in production payment / membership 
 - Per-currency notification switches, minimum severity, Telegram MarkdownV2, and automatic dry-run mode.
 - Reproducible traffic patterns, isolated SQLite tests, and HTTP stubs for external delivery.
 
+## Screenshots
+
+<img src="docs/images/dashboard.png" alt="Live dashboard receiving alerts over SignalR">
+
+*Live dashboard receiving alerts over SignalR*
+
+<img src="docs/images/alert-detail.png" alt="Alert detail with evidence window and source events">
+
+*Alert detail with evidence window and source events*
+
 ## Architecture
 
 ```mermaid
