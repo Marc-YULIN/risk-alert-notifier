@@ -48,12 +48,12 @@ public static class AlertTextCatalog
         },
         ["zh-TW"] = new()
         {
-            ["LARGE_TXN"] = "單筆大額交易", ["VELOCITY"] = "短時間高頻交易", ["SHARED_PAYOUT_ACCOUNT"] = "共用收款帳戶", ["BONUS_RATIO"] = "獎勵比例過高",
+            ["LARGE_TXN"] = "單筆大額交易", ["VELOCITY"] = "短時間高頻交易", ["SHARED_PAYOUT_ACCOUNT"] = "共用外部帳戶", ["BONUS_RATIO"] = "獎勵比例過高",
             ["Low"] = "低", ["Medium"] = "中", ["High"] = "高", ["Critical"] = "嚴重",
             ["LARGE_TXN_description"] = "交易金額超過該幣別與交易類型的設定門檻。",
             ["VELOCITY_description"] = "會員在設定時間內的交易次數達到門檻。",
-            ["SHARED_PAYOUT_ACCOUNT_description"] = "多位會員使用相符的收款帳戶。",
-            ["BONUS_RATIO_description"] = "獎勵總額占儲值總額的比例超過門檻。",
+            ["SHARED_PAYOUT_ACCOUNT_description"] = "多位會員使用相符的外部帳戶。",
+            ["BONUS_RATIO_description"] = "獎勵總額占入帳總額的比例超過門檻。",
             ["title"] = "交易風險監控", ["subtitle"] = "即時交易訊號 · 人工判讀處置",
             ["all"] = "全部", ["currency"] = "幣別", ["severity"] = "嚴重度", ["language"] = "語系",
             ["connected"] = "即時連線", ["disconnected"] = "重新連線中", ["stats"] = "最近 24 小時",
