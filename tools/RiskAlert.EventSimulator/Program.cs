@@ -60,11 +60,11 @@ internal sealed class Simulator(HttpClient client, SimulatorOptions options, Tim
         for (var i = 0; i < options.Rate; i++)
         {
             var member = random.Next(options.Members);
-            var currency = new[] { "KRW", "USD", "USDT" }[random.Next(3)];
+            var currency = new[] { "TWD", "USD" }[random.Next(2)];
             var u1 = 1 - random.NextDouble(); var u2 = 1 - random.NextDouble();
             var normal = Math.Sqrt(-2 * Math.Log(u1)) * Math.Cos(2 * Math.PI * u2);
             var amount = (decimal)Math.Clamp(Math.Exp(3 + normal * 0.7), 1, 100);
-            amount = currency == "KRW" ? decimal.Round(amount * 1000, 0) : decimal.Round(amount, 2);
+            amount = currency == "TWD" ? decimal.Round(amount * 30, 0) : decimal.Round(amount, 2);
             var type = random.NextDouble() < .15 ? TransactionType.Withdrawal : TransactionType.Deposit;
             yield return Event($"normal-{member:000}", type, amount, currency,
                 type == TransactionType.Withdrawal ? "7" + Convert.ToInt64(run, 16).ToString("D13", CultureInfo.InvariantCulture) + member.ToString("D6", CultureInfo.InvariantCulture) : null);

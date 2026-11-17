@@ -6,7 +6,7 @@ namespace RiskAlert.Core;
 public static class MoneyFormatter
 {
     public static string Format(decimal amount, string currency) => currency + " " +
-        amount.ToString(currency is "KRW" or "JPY" ? "N0" : "N2", CultureInfo.InvariantCulture);
+        amount.ToString(currency is "TWD" or "JPY" ? "N0" : "N2", CultureInfo.InvariantCulture);
 }
 public static class TelegramMarkdown
 {

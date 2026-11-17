@@ -42,8 +42,8 @@ public sealed class PolicyAndPresentationTests
         Assert.False(NotificationPolicy.ShouldSend(alert, []).Send);
     }
     [Theory]
-    [InlineData("KRW", "KRW 12,500,000", 12500000)] [InlineData("USD", "USD 10,250.00", 10250)]
-    [InlineData("USDT", "USDT 1.00", 1)] [InlineData("JPY", "JPY 1", 1)] [InlineData("EUR", "EUR 1.00", 1)]
+    [InlineData("TWD", "TWD 12,500,000", 12500000)] [InlineData("USD", "USD 10,250.00", 10250)]
+    [InlineData("SGD", "SGD 1.00", 1)] [InlineData("JPY", "JPY 1", 1)] [InlineData("EUR", "EUR 1.00", 1)]
     public void Format_CurrencyPrecision_UsesInvariantGrouping(string currency, string expected, decimal amount) =>
         Assert.Equal(expected, MoneyFormatter.Format(amount, currency));
     [Fact]

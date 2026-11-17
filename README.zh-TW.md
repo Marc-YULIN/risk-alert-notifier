@@ -88,10 +88,10 @@ docker compose --profile simulator up --build simulator
 | 資料庫連線 (ConnectionStrings:RiskAlert) | `Data Source=appdata/risk-alert-notifier.db` | SQLite 路徑 |
 | 進件金鑰 (Security:IngestApiKey) | `dev-ingest-key` | 交易端點要求 `X-Api-Key`，對外開放前必須替換 |
 | 去重分鐘數 (Risk:DedupeWindowMinutes) | `30` | 未結案告警依最後命中時間滾動計算 |
-| 大額規則預設 (Risk:Rules:LARGE_TXN) | KRW 10,000,000；USD/USDT 10,000 | JSON 字串，設定幣別與入帳／出帳各自門檻 |
+| 大額規則預設 (Risk:Rules:LARGE_TXN) | TWD 300,000；USD 10,000 | JSON 字串，設定幣別與入帳／出帳各自門檻 |
 | 高頻規則預設 (Risk:Rules:VELOCITY) | 10 分鐘；入帳 5、出帳 3 次 | JSON 字串，設定分鐘數與各類型次數 |
 | 共用帳戶規則預設 (Risk:Rules:SHARED_PAYOUT_ACCOUNT) | 30 天、完全相符、6 碼 | JSON 字串，設定天數、模式及末碼數（1–6） |
-| 獎勵比例規則預設 (Risk:Rules:BONUS_RATIO) | 7 天、0.5；最低入帳 KRW 100,000 或 USD/USDT 100 | JSON 字串，設定比例、天數及各幣別最低入帳 |
+| 獎勵比例規則預設 (Risk:Rules:BONUS_RATIO) | 7 天、0.5；最低入帳 TWD 3,000 或 USD 100 | JSON 字串，設定比例、天數及各幣別最低入帳 |
 | 通知顯示時區 (Notifications:DisplayTimeZone) | `Asia/Taipei` | 與 UTC 一起顯示 |
 | 機器人金鑰 (Notifications:Telegram:BotToken) | 空白 | 空白時啟用乾跑 |
 | 預設通知對象 (Notifications:Telegram:ChatId) | 空白 | Telegram 預設目的地 |

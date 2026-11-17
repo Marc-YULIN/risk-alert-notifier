@@ -20,9 +20,9 @@ public sealed class RuleTests
         if (severity is null) Assert.Empty(hits); else Assert.Equal(severity, Assert.Single(hits).Severity);
     }
     [Theory]
-    [InlineData("KRW", TransactionType.Deposit, 10000001, Severity.Medium)]
+    [InlineData("TWD", TransactionType.Deposit, 300001, Severity.Medium)]
     [InlineData("USD", TransactionType.Withdrawal, 20001, Severity.High)]
-    [InlineData("USDT", TransactionType.Deposit, 50001, Severity.Critical)]
+    [InlineData("USD", TransactionType.Deposit, 50001, Severity.Critical)]
     public async Task EvaluateAsync_LargeCurrencyAndType_UsesOwnThreshold(string currency, TransactionType type, int amount, Severity expected)
     {
         var clock = new ManualTimeProvider(); var rule = new LargeTransactionRule(); var current = Samples.Event(clock, amount, type, currency: currency);
@@ -42,7 +42,7 @@ public sealed class RuleTests
     public async Task EvaluateAsync_VelocityOtherCurrencyOrOldEvent_ExcludesUnrelatedEvents()
     {
         var clock = new ManualTimeProvider(); var rule = new VelocityRule(); var current = Samples.Event(clock);
-        var events = new[] { current, Samples.Event(clock, currency: "KRW"), Samples.Event(clock, member: "other"),
+        var events = new[] { current, Samples.Event(clock, currency: "TWD"), Samples.Event(clock, member: "other"),
             Samples.Event(clock) with { OccurredAt = clock.GetUtcNow().AddMinutes(-11) }, Samples.Event(clock, type: TransactionType.Withdrawal) };
         Assert.Empty(await rule.EvaluateAsync(Samples.Context(rule, current, clock, events), CancellationToken.None));
     }
@@ -96,7 +96,7 @@ public sealed class RuleTests
     public async Task EvaluateAsync_BonusOtherCurrencyAndOldDeposit_DoesNotMixCurrenciesOrDivideByZero()
     {
         var clock = new ManualTimeProvider(); var rule = new BonusRatioRule(); var bonus = Samples.Event(clock, 1000, TransactionType.BonusGrant);
-        Assert.Empty(await rule.EvaluateAsync(Samples.Context(rule, bonus, clock, bonus, Samples.Event(clock, 10000, currency: "KRW"),
+        Assert.Empty(await rule.EvaluateAsync(Samples.Context(rule, bonus, clock, bonus, Samples.Event(clock, 10000, currency: "TWD"),
             Samples.Event(clock, 200) with { OccurredAt = clock.GetUtcNow().AddDays(-8) }), CancellationToken.None));
     }
 }

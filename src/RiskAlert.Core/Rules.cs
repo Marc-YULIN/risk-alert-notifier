@@ -8,9 +8,8 @@ public sealed record LargeParameters
 {
     public Dictionary<string, Dictionary<TransactionType, decimal>> Thresholds { get; init; } = new()
     {
-        ["KRW"] = new() { [TransactionType.Deposit] = 10_000_000, [TransactionType.Withdrawal] = 10_000_000 },
-        ["USD"] = new() { [TransactionType.Deposit] = 10_000, [TransactionType.Withdrawal] = 10_000 },
-        ["USDT"] = new() { [TransactionType.Deposit] = 10_000, [TransactionType.Withdrawal] = 10_000 }
+        ["TWD"] = new() { [TransactionType.Deposit] = 300_000, [TransactionType.Withdrawal] = 300_000 },
+        ["USD"] = new() { [TransactionType.Deposit] = 10_000, [TransactionType.Withdrawal] = 10_000 }
     };
 }
 public sealed record VelocityParameters
@@ -30,7 +29,7 @@ public sealed record BonusParameters
     public int LookbackDays { get; init; } = 7;
     public decimal MaxRatio { get; init; } = 0.5m;
     public Dictionary<string, decimal> MinDeposit { get; init; } = new()
-        { ["KRW"] = 100_000, ["USD"] = 100, ["USDT"] = 100 };
+        { ["TWD"] = 3_000, ["USD"] = 100 };
 }
 public static class RuleParameters
 {

@@ -5,7 +5,7 @@ const query = new URLSearchParams(location.search);
 function node(tag, text, className) { const e = document.createElement(tag); if (text !== undefined) e.textContent = text; if (className) e.className = className; return e; }
 const t = key => state.text[key] || key;
 const time = value => new Date(value).toLocaleString(state.locale, { hour12: false });
-const money = a => a.amount == null ? '—' : `${a.currency} ${Number(a.amount).toLocaleString('en-US', { minimumFractionDigits: ['KRW', 'JPY'].includes(a.currency) ? 0 : 2, maximumFractionDigits: ['KRW', 'JPY'].includes(a.currency) ? 0 : 2 })}`;
+const money = a => a.amount == null ? '—' : `${a.currency} ${Number(a.amount).toLocaleString('en-US', { minimumFractionDigits: ['TWD', 'JPY'].includes(a.currency) ? 0 : 2, maximumFractionDigits: ['TWD', 'JPY'].includes(a.currency) ? 0 : 2 })}`;
 async function api(url, options) {
   const response = await fetch(url, options);
   if (!response.ok) { let detail; try { detail = await response.json(); } catch { detail = {}; } throw new Error(detail.title || `${t('error')} (${response.status})`); }

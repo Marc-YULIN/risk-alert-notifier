@@ -16,7 +16,7 @@ POST {{host}}/api/events/transactions/batch
 Content-Type: application/json
 X-Api-Key: {{key}}
 
-[{"eventId":"example-2","memberId":"member-02","type":"Deposit","amount":11000,"currency":"USDT","occurredAt":"2026-11-12T02:01:00Z"}]
+[{"eventId":"example-2","memberId":"member-02","type":"Deposit","amount":11000,"currency":"USD","occurredAt":"2026-11-12T02:01:00Z"}]
 
 ### Search
 GET {{host}}/api/alerts?currency=USD&page=1&pageSize=50

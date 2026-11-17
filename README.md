@@ -88,10 +88,10 @@ Use environment variables with `__` between configuration sections. Do not commi
 | `ConnectionStrings:RiskAlert` | `Data Source=appdata/risk-alert-notifier.db` | SQLite path |
 | `Security:IngestApiKey` | `dev-ingest-key` | Required `X-Api-Key` for event ingestion; replace before exposure |
 | `Risk:DedupeWindowMinutes` | `30` | Rolling inactivity window for open/acknowledged alerts |
-| `Risk:Rules:LARGE_TXN` | KRW 10,000,000; USD/USDT 10,000 | JSON string with `thresholds[currency][Deposit/Withdrawal]` |
+| `Risk:Rules:LARGE_TXN` | TWD 300,000; USD 10,000 | JSON string with `thresholds[currency][Deposit/Withdrawal]` |
 | `Risk:Rules:VELOCITY` | 10 minutes; deposit 5, withdrawal 3 | JSON string with `windowMinutes`, `maxCount` |
 | `Risk:Rules:SHARED_PAYOUT_ACCOUNT` | 30 days, Exact, 6 digits | JSON string with `lookbackDays`, `matchMode`, `digits` (1–6) |
-| `Risk:Rules:BONUS_RATIO` | 7 days, 0.5; minimum KRW 100,000 or USD/USDT 100 | JSON string with `lookbackDays`, `maxRatio`, `minDeposit` |
+| `Risk:Rules:BONUS_RATIO` | 7 days, 0.5; minimum TWD 3,000 or USD 100 | JSON string with `lookbackDays`, `maxRatio`, `minDeposit` |
 | `Notifications:DisplayTimeZone` | `Asia/Taipei` | Notification local time, alongside UTC |
 | `Notifications:Telegram:BotToken` | empty | Empty enables dry-run |
 | `Notifications:Telegram:ChatId` | empty | Default Telegram destination |
